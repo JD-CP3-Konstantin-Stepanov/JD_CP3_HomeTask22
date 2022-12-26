@@ -1,4 +1,8 @@
+package MainClasses;
+
 import java.util.*;
+
+import UtilClasses.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,12 +30,12 @@ public class Main {
                 throw new IllegalArgumentException("Параметры нужно задавать в формате ТОВАР КОЛИЧЕСТВО!");
             }
             if (isPresent(products, product)) {
-                IAddPurchase.addPurchase(product, count, purchases);
+                new PurchaseAdd().add(product, count, purchases);
             } else {
                 System.out.println("Данного товара нет в наличии!");
             }
         }
-        long sum = IPurchaseSum.sum(products, purchases);
+        long sum = new PurchaseSum().sum(products, purchases);
         System.out.println("ИТОГО: " + sum);
         scanner.close();
     }

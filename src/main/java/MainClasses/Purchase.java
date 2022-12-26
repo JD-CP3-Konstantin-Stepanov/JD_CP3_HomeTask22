@@ -1,3 +1,5 @@
+package MainClasses;
+
 public class Purchase {
     protected String title;
     protected int count;

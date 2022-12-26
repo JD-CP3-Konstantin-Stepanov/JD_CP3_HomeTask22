@@ -1,8 +1,12 @@
+package UtilClasses;
+
+import MainClasses.Purchase;
+
 import java.util.List;
 
-public class IAddPurchase {
+public class PurchaseAdd {
 
-    static void addPurchase(String title, int count, List<Purchase> purchases) {
+    public void add(String title, int count, List<Purchase> purchases) {
         for (Purchase purchase : purchases) {
             if (purchase.getTitle().equals(title)) {
                 purchase.setCount(purchase.getCount() + count);

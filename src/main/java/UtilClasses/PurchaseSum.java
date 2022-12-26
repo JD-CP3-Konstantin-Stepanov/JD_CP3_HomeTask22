@@ -1,8 +1,12 @@
+package UtilClasses;
+
+import MainClasses.Purchase;
+
 import java.util.List;
 import java.util.Map;
 
-public class IPurchaseSum {
-    static long sum(Map<String, Integer> prices, List<Purchase> purchases) {
+public class PurchaseSum {
+    public long sum(Map<String, Integer> prices, List<Purchase> purchases) {
         long sum = 0;
         System.out.println("КОРЗИНА:");
         for (Purchase purchase : purchases) {
