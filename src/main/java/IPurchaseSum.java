@@ -1,10 +1,11 @@
+import java.util.List;
 import java.util.Map;
 
-public interface IPurchaseSum {
-    static long sum(Map<String, Integer> prices) {
+public class IPurchaseSum {
+    static long sum(Map<String, Integer> prices, List<Purchase> purchases) {
         long sum = 0;
         System.out.println("КОРЗИНА:");
-        for (Purchase purchase : IAddPurchase.purchases) {
+        for (Purchase purchase : purchases) {
             if (purchase == null) continue;
             System.out.println("\t" + purchase.getTitle() + " " + purchase.getCount() + " шт. в сумме "
                     + (purchase.getCount() * prices.get(purchase.getTitle())) + " руб.");
