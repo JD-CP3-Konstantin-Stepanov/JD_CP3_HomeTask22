@@ -4,15 +4,21 @@ import MainClasses.Purchase;
 
 import java.util.List;
 
-public class PurchaseAdd {
+public class PurchaseAdd extends Purchase {
 
-    public void add(String title, int count, List<Purchase> purchases) {
+    public PurchaseAdd(String title, int count) {
+        super(title, count);
+    }
+
+    public PurchaseAdd(){}
+
+    public boolean containsPurchase(String title, int count, List<Purchase> purchases) {
         for (Purchase purchase : purchases) {
             if (purchase.getTitle().equals(title)) {
                 purchase.setCount(purchase.getCount() + count);
-                return;
+                return true;
             }
         }
-        purchases.add(new Purchase(title, count));
+        return false;
     }
 }

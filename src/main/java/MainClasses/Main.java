@@ -30,7 +30,8 @@ public class Main {
                 throw new IllegalArgumentException("Параметры нужно задавать в формате ТОВАР КОЛИЧЕСТВО!");
             }
             if (isPresent(products, product)) {
-                new PurchaseAdd().add(product, count, purchases);
+                if (!new PurchaseAdd().containsPurchase(product, count, purchases))
+                    purchases.add(new PurchaseAdd(product, count));
             } else {
                 System.out.println("Данного товара нет в наличии!");
             }

@@ -9,6 +9,8 @@ public class Purchase {
         this.count = count;
     }
 
+    public Purchase(){}
+
     public void setCount(int count) {
         this.count = count;
     }
