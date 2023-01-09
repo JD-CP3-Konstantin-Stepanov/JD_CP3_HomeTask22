@@ -2,8 +2,6 @@ package MainClasses;
 
 import java.util.*;
 
-import UtilClasses.*;
-
 public class Main {
     public static void main(String[] args) {
         HashMap<String, Integer> products = new HashMap<>();
@@ -15,7 +13,7 @@ public class Main {
         showGoods(products);
 
         System.out.println("Введите два слова: название товара и количество. Или end");
-        List<Purchase> purchases = new ArrayList<>();
+        Basket basket = new Basket(products);
         Scanner scanner = new Scanner(System.in);
         while (true) {
             String line = scanner.nextLine();
@@ -30,13 +28,12 @@ public class Main {
                 throw new IllegalArgumentException("Параметры нужно задавать в формате ТОВАР КОЛИЧЕСТВО!");
             }
             if (isPresent(products, product)) {
-                if (!new Purchase().containsPurchase(product, count, purchases))
-                    purchases.add(new Purchase(product, count));
+                basket.add(product, count);
             } else {
                 System.out.println("Данного товара нет в наличии!");
             }
         }
-        long sum = new PurchaseSum().sum(products, purchases);
+        long sum = basket.sum();
         System.out.println("ИТОГО: " + sum);
         scanner.close();
     }
