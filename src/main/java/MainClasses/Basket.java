@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Basket {
-    List<Purchase> purchases;
-    HashMap<String, Integer> products;
+    private final List<Purchase> purchases;
+    private final HashMap<String, Integer> products;
 
     public Basket(HashMap<String, Integer> products) {
         this.purchases = new ArrayList<>();
